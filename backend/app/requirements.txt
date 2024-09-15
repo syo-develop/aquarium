@@ -2,5 +2,5 @@ flask
 w1thermsensor
 Flask-Cors
 awsiotsdk
-load_dotenv
 boto3
+python-dotenv

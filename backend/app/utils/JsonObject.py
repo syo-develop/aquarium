@@ -3,11 +3,19 @@ from boto3.dynamodb.conditions import Key
 import datetime
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
 
 class JsonObject:
     # テーブル設定
     table_name = 'raspberry_pi_4_data' 
-    dynamodb = boto3.resource('dynamodb')
+    dynamodb = boto3.resource(
+      'dynamodb',
+      aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+      aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+      )
     table = dynamodb.Table(table_name)
     
     def __init__(self):
