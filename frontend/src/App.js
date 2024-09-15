@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:5000/api/${endpoint}`)
+      .get(`https://127.0.0.1:5000/api/${endpoint}`)
       .then((response) => {
         console.log("Received data:", response.data); // 取得したデータをコンソールに表示
         setJsonData(response.data); // データを状態に設定
