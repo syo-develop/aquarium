@@ -5,6 +5,10 @@ from utils.JsonObject import JsonObject
 main = Blueprint('main', __name__)
 today = datetime.now().strftime("%Y%m%d")
 
+@main.route("/")
+def index():
+    return render_template("index.html")
+
 @main.route('/api/dayData', methods=['GET'])
 def get_day_data():
     jsonData = JsonObject()
